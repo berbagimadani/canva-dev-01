@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import cat from "assets/images/cat.jpg";
 import dog from "assets/images/dog.jpg";
 import rabbit from "assets/images/rabbit.jpg";
@@ -66,6 +66,7 @@ const appElementClient = initAppElement<AppElementData>({
 export const App = () => {
   const [state, setState] = React.useState<UIState>(initialState);
   const { imageId, width, height, rotation } = state;
+  const [displayText, setDisplayText] = useState('');
   const disabled = !imageId || imageId.trim().length < 1;
 
   const items = Object.entries(images).map(([key, value]) => {
@@ -88,7 +89,10 @@ export const App = () => {
 
   React.useEffect(() => {
     appElementClient.registerOnElementChange((appElement) => {
+      setDisplayText(new Date().toLocaleTimeString()+'=='+appElement?.data.imageId); 
       setState(appElement ? appElement.data : initialState);
+
+      console.log(appElement ? appElement.data : initialState);
     });
   }, []);
 
@@ -99,6 +103,7 @@ export const App = () => {
           This example demonstrates how apps can create image elements inside
           app elements. This makes the element re-editable and lets apps control
           additional properties, such as the width and height.
+          { displayText }
         </Text>
         <FormField
           label="Select an image"

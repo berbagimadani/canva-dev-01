@@ -2,8 +2,8 @@
   "name": "canva-apps-sdk-starter-kit",
   "description": "A boilerplate for creating Canva Apps.",
   "engines": {
-    "node": "^18",
-    "npm": "^9"
+    "node": "18.19.0",
+    "npm": "10.2.3"
   },
   "scripts": {
     "start": "node ./scripts/start.js",
@@ -27,8 +27,11 @@
     "@canva/preview": "./sdk/preview",
     "@canva/user": "./sdk/user",
     "clsx": "^1.2.1",
+    "convertpath": "^1.3.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "roughjs": "^4.5.2",
+    "term-canvas": "^0.0.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
@@ -60,7 +63,7 @@
     "ngrok": "^4.3.3",
     "node-fetch": "^2.6.7",
     "node-forge": "^1.3.1",
-    "nodemon": "^2.0.19",
+    "nodemon": "^3.0.2",
     "postcss-loader": "^7.3.3",
     "prettier": "^2.7.1",
     "style-loader": "^3.3.1",
